@@ -76,7 +76,7 @@ class DummyController extends Controller
      */
     public function update(Dummy $dummy, DummyUpdateRequestForm $request)
     {
-        $dummy->update($request->validated2());
+        $dummy->update($request->validated());
 
         cache()->forget('dummies');
 
