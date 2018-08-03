@@ -15,7 +15,7 @@ class DummyController extends Controller
     public function index()
     {
         cache()->remember('dummies', config('artify.cache.duration'), function () {
-            $dummies = Dummy::latest()->get();
+            return Dummy::latest()->get();
         });
 
         return view('dummies.index', ['dummies' => cache('dummies')]);
