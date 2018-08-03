@@ -39,7 +39,7 @@ class DummyController extends Controller
      */
     public function store(DummyStoreRequestForm $request)
     {
-        Dummy::create(request()->all());
+        Dummy::create($request->validated());
 
         cache()->forget('dummies');
 
@@ -76,7 +76,7 @@ class DummyController extends Controller
      */
     public function update(Dummy $dummy, DummyUpdateRequestForm $request)
     {
-        $dummy->update(request()->all());
+        $dummy->update($request->validated2());
 
         cache()->forget('dummies');
 
