@@ -44,6 +44,7 @@ class ArtifyServiceProvider extends ServiceProvider
         $this->commands(\Artify\Artify\Artifies\GenerateCrudCommand::class);
         $this->commands(\Artify\Artify\Artifies\RepositoryMakeCommand::class); //
         $this->commands(\Artify\Artify\Artifies\InstallCommand::class); //
+        $this->commands(\Artify\Artify\Artifies\DatabaseCreateCommand::class); //
     }
 
     public function registerPublishables()
