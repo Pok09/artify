@@ -223,6 +223,90 @@ Well, This artifier is really a beast, it could save you up to 20 minutes or som
 ```
 <hr>
 
+#### 4.8 ADR Installation
+
+You may know the ADR pattern, out of the blue artify supports this pattern, It's an alternative of MVC that we personally think it's better, if you don't know much about it yet, we recommend you getting started with this [link](https://github.com/pmjones/adr) , If you a tutorial fan, you can see this [course](https://codecourse.com/watch/action-domain-responder-with-laravel)
+
+
+This command actually sets up the environment by publishing the standards of adr inside your App\\App directory, which will create the directory in case you don't have it.
+
+```bash
+php artisan adr:install
+```
+
+<hr>
+
+#### 4.9 ADR Generation
+
+This command is actually powerful  as it ships with various options consisting of 
+ - create model, migration, repository, factory "-m"
+ - create resource "-c"
+ - create responder "-r"
+ - create action "-a"
+ - create service "-s"
+ - create everything "-A"
+ 
+ 
+ Let's start with the basics
+ 
+ ```bash
+ php artisan adr:generate Addresses IndexAddress -sra
+```
+
+
+This is going to create you Addresses folder under the app directory and will look like the following structure :
+
+
+    ├── App
+ 
+    ├── Addresses   
+    
+    │   ├── Actions    
+    
+    │   │   ├── IndexAddressAction.php
+    
+    │   ├── Domain
+    
+    │   |   ├── Services
+    
+    |	|      ├── IndexAdressService.php
+    
+    │   ├── Responders
+    
+    │   |   ├── IndexAddressResponder
+    
+    └── ...
+    
+Which in essence creates you Action, Service, Responder.
+
+
+You can also model, associated with the repository and migration
+
+```bash
+php artisan adr:generate Addresses -m
+```
+
+Note that passing the filename in this case will be ignored, as the domain is only our main concern in this case, anyways this will generate you the repository, model, migration and the factory.
+
+
+You can also create a resource for this domain using the -c option.
+
+
+```bash
+	php artisan adr:generate Addresses -c
+```
+
+You can also combine them all at once using the -A option.
+
+```bash
+ php artisan adr:generate Videos IndexVideo -A
+```
+
+This will create you Responder,Action, and Domain components.
+
+
+Note that action,responder,service will contain of IndexVideo file only, for creating other files, use the command again and mention their names again.
+
 
 ### 5.0 Roles Trait
 
